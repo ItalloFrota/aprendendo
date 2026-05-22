@@ -1,0 +1,28 @@
+import tkinter as tk
+janela = tk.Tk()
+janela.title('primeira janela')
+janela.geometry('400x500')
+label = tk.Label(janela, text='Olá, Mundo!')
+label.pack()
+canva = tk.Canvas(janela, width=200, height=450, bg='black')
+canva.pack(pady=20)
+vermelho = canva.create_oval(50, 45,150, 145, fill='gray')
+amarelo = canva.create_oval(50, 175, 150, 275, fill='gray')
+verde = canva.create_oval(50, 305,150, 405, fill='gray')
+def mudar_corverde():
+    canva.itemconfig(vermelho, fill='red') 
+    canva.itemconfig(amarelo, fill='gray')
+    canva.itemconfig(verde, fill='gray')
+    janela.after(4000, mudar_corvermelho)
+def mudar_corvermelho():
+    canva.itemconfig(vermelho, fill='gray')
+    canva.itemconfig(amarelo, fill='yellow')
+    canva.itemconfig(verde, fill='gray')
+    janela.after(1000, mudar_coramarelo)  
+def mudar_coramarelo():
+    canva.itemconfig(vermelho, fill='gray')
+    canva.itemconfig(amarelo, fill='gray')
+    canva.itemconfig(verde, fill='green')
+    janela.after(4000, mudar_corverde)
+mudar_corverde()
+janela.mainloop()
